@@ -18,7 +18,7 @@ Note: Personally, I prefer the second definition, which requires the interpretat
 
 ----
 
-### Taxonomy of Interpretability Methods
+### 1. Taxonomy of Interpretability Methods
 
 #### Intrinsic vs. post-hoc
 
@@ -51,7 +51,7 @@ Note: How to generate meaningful data points as meaningful interpretations
 for the predictions made on tabular data?
 ```
 
-### Scope of Interpretability
+### 2. Scope of Interpretability
 
 #### Algorithm Transparency
 
@@ -73,13 +73,13 @@ When we look into an individual prediction, the behavior of the complex model mi
 
 Rather than only explain the predictions made on individual points, those methods try to explain the behaviors of the models in a small local region. For example, the piecewise linear models behave consistently in each of its locally linear regions.
 
-### Evaluation of Interpretability
+### 3. Evaluation of Interpretability
 
 Doshi-Velez and Kim (2017) proposed three main levels for the evaluation of interpretability, application level, human level, and function level.
 
 From the first to the last, the cost of the evaluation increases. The first evaluation level involves the experts to test the interpretations. Differently, the second level evaluation asks laypersons to evaluate the interpretations. The last level does not require humans. 
 
-### Properties of Explanation
+### 4. Properties of Explanation
 
 ***Accuracy*: How well does an explanation predict unseen data. This property is important for global interpretation methods. 
 
