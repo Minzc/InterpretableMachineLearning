@@ -1,2 +1,3 @@
 - [ ] Miller, Tim. “Explanation in artificial intelligence: Insights from the social sciences.” arXiv Preprint arXiv:1706.07269. (2017)
 - [ ] Kim, Been, Rajiv Khanna, and Oluwasanmi O. Koyejo. “Examples are not enough, learn to criticize! Criticism for interpretability.” Advances in Neural Information Processing Systems (2016)
+- [ ] Robnik-Sikonja, Marko, and Marko Bohanec. “Perturbation-based explanations of prediction models.” Human and Machine Learning. Springer, Cham. 159-175. (2018)
