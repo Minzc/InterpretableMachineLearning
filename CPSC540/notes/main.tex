@@ -1,0 +1,249 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage[dvipsnames]{xcolor}
+%=====================================
+% Zicun's command
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\rmk}[1]{\begin{remark}#1\end{remark}}
+%=====================================
+
+\title{UBC CPSC540 MachineLearning}
+\author{Handsome Cong}
+\date{July 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\section{Convex Optimization}
+\subsection{Minimizing Maxes of Linear Functions}
+A general approach for minimizing absolute value and/or maximums:
+\begin{enumerate}
+    \item Replace absolute values with maximums
+    \item Replace maximums with new variables. Constrain these new variables to bound maximums.
+    \item Transform to linear constrains by splitting maximum constrains.
+\end{enumerate}
+
+For example, we want to minimize the absolute loss as follows
+
+\begin{equation}
+    argmin_{w \in R^{d}} \sum^{n}_{i=1}|w^{\top} x^{i} - y^{i}|
+\end{equation}
+
+Out first step is to replace the absolute value using $|\alpha| = max(\alpha, -\alpha)$.
+
+\begin{equation}
+    argmin_{w \in R^{d}} \sum^{n}_{i=1} max(w^{\top} x^{i} - y^{i}, -w^{\top} x^{i} + y^{i})
+\end{equation}
+
+Our second step is to introduce new variables to upper bound the max functions
+
+\begin{equation}
+    argmin_{w \in R^{d}, r \in R^{d}} \sum^{n}_{i=1} r_{i}\ with\ r_{i} \geq max(w^{\top} x^{i} - y^{i}, -w^{\top} x^{i} + y^{i}), \forall i
+\end{equation}
+
+Note that we must have $r_i = max(w^{\top} x^{i} - y^{i}, -w^{\top} x^{i} + y^{i})$, otherwise either $r_i$ can be further decreased or the constrains are violated.
+
+The third step is to split the maximum constrain into individual linear constrains
+
+\begin{equation}
+    \label{eq:LL}
+    argmin_{w \in R^{d}, r \in R^{d}} \sum^{n}_{i=1} r_{i}\ with\ r_{i} \geq w^{\top} x^{i} - y^{i}, r_i \geq -w^{\top} x^{i} + y^{i}, \forall i
+\end{equation}
+
+Equation \ref{eq:LL} can be solved as a linear program.
+
+\subsection{Convex Functions}
+
+\begin{definition}[Lp-Norm]
+\begin{equation}
+    \norm{r}_{p} = (\sum^{n}_{i=1} r_{i}^{p})^{\frac{1}{p}}
+\end{equation}
+\end{definition}
+
+Some examples and the intuitions of the $L_{p}-$Norm
+\begin{itemize}
+    \item When p = 0, it is the number of non-zero elements in $r$.
+    \item When p = 1, it is the sum of the absolute values of the entries in $r$.
+    \item When p = $\inf$, it is the maximum absolute value in $r$.
+\end{itemize}
+
+Consider we want to minimize the regression loss
+
+\begin{equation}
+    f(x) = \norm{w^{\top}\mathbf{X} - \mathbf{Y}}_{p}
+\end{equation}
+
+\begin{itemize}
+    \item When $p=2$, the problem can be solved by linear algebra.
+    \item When $p=1$, the problem can be solved by linear programming.
+    \item When $p > 2$, the problem can be solved by gradient descent.
+    \item When $1 < p < 2$, the problem can be solved by some existing methods.
+    \item When $p < 1$ (\red{Actually, this is not a norm}), it $NP-$hard to solved the problem.
+\end{itemize}
+
+In summary, when $p < 1$, the problem is non-convex and when $p \geq 1$, the problem is convex.
+
+A convex optimization problem can be written in the form
+\begin{equation}
+    min_{w \in C}f(w)
+\end{equation},
+where $C$ is \textcolor{red}{Convex Set} and $f(w)$ is convex function.
+
+\begin{definition}[Convex Combination]
+
+A convex combination of $k$ variables $\{w_1, w_2, \dots, w_k\}$ is given by
+\begin{equation}
+    \sum_{i=1}^{k} \theta_{i}w_{i}\ \text{where} \sum_{i=1}^k \theta_{i} = 1, \theta_{i} > 0
+\end{equation}
+\end{definition}
+
+\begin{definition}[Differentiability Classes]
+
+$C$ is the set of continuous functions.
+
+$C_1$ is the set of continuous functions with continuous first-derivatives.
+
+$C_2$ is the set of continuous functions with continuous first- and second-derivatives.
+\end{definition}
+
+\begin{definition}[Convex Set]
+A set is convex if convex combinations of the points in the set are all in the set.
+\end{definition}
+
+\begin{definition}[Convex Function]
+A function $f$ is convex if the area above the function is a convex set.
+\end{definition}
+
+Equivalently, a function is convex if it is always below the ``chord" between two points.
+
+\begin{equation}
+    f(\theta w_1 + (1-\theta) w_2) \leq \theta f(w_1) + (1-\theta) f(w_2)\ \text{where}\ 0 \leq \theta \leq 1, \textcolor{red}{w_1 \in C}, \textcolor{red}{w_2 \in C}
+\end{equation}
+
+One of a good property of convex functions is that all local minima of convex functions are global minima. Please note that a convex function may have \red{multiple} global minima.
+
+\begin{lemma}[Convexity of Norms]
+All norms are convex
+\end{lemma}
+\begin{proof}
+\begin{align*}
+\norm{\theta W + (1-\theta) V}_{p} &\leq \norm{ \theta W}_{p} + \norm{(1-\theta) V}_{p}      &\text{(Triangle Inequality)}    \\
+&= \red{|\theta|} \norm{W}_{p} + \red{|(1-\theta)|} \norm{V}_{p} &\text{(Absolute homogeneity)}      \\
+&= \theta \norm{W}_{p} + (1 - \theta) \norm{V}_{p} &(0 \leq \theta \leq 1)    
+\end{align*} 
+\end{proof}
+
+In addition, all squared norms are convex.
+
+\begin{definition}[Operations Preserve Convexity]
+If $f$ and $g$ are convex functions, the following operations preserve convexity:
+
+\begin{itemize}
+    \item Non-negative scaling: $\theta f(x)$, where $\theta \geq 0$
+    \item Sum: $f(x) + g(x)$
+    \item Composition with affine map: $f(w^{\top} x \red{ + b})$
+    \item \red{Max}: $max(f(x), g(x))$.
+\end{itemize}
+\end{definition}
+Please note that \red{in general}, the composition of two convex functions are not convex.
+
+\begin{lemma}[Convexity of SVMs]
+
+The loss functions of SVMs are in the form 
+\begin{equation}
+    f(w) = \sum_{i=1}^{N}max(0, 1 - y_{i}w^{\top}x_{i}) + \frac{\lambda}{2}\norm{w}^{2}\ where\ \lambda \geq 0
+\end{equation}
+\end{lemma}
+\begin{proof}
+The second term $\frac{\lambda}{2}\norm{w}^{2}$ is a squared norm multiplied \red{by} a non-negative scale. Therefore, it is a convex function.
+
+Since $1 - y_{i}w^{\top}x_{i}$ is a linear function, it is a convex function. First term is the sum of the results of $N$ max functions. As max and sum operations preserve convexity, the first term is convex.
+
+Since $f(w)$ is the sum of two convex function, it is convex.
+\end{proof}
+
+Examples of convex set
+\begin{itemize}
+    \item Real space $R^{d}$
+    \item Positive orthant: $\{w|w \geq 0\}$
+    \item Hyper-plane: $\{x|w^{\top}x = 0\}$
+    \item Half-space: $\{x|w^{\top}x \leq 0\}$
+    \item Norm-ball: $\{x|\norm{x}_{p} = r\}$
+    \item Norm-cone: $\{(x, y)|\norm{x}_{p} \leq y\}$
+\end{itemize}
+
+In addition to using the definition of convex set, we can prove the convexity of a set by showing it's an intersection of two convex sets.
+
+\begin{definition}[Differentiable Convex Function] A convex function is differentiable iff it is always above tangent.
+
+\begin{equation}
+    f(v) \geq f(w) + (v- w)f^{'}(w)\ \forall v \in C, \forall w \in C
+\end{equation}
+\end{definition}
+
+\rmk{$f^{'}(w) = 0$ implies that $f(v) \geq f(w)\ \forall v$, so $f(w)$ is a global minimum.}
+
+For functions in $C^{2}$, there is another definition of differentiable.
+\begin{definition}[Convexity of Functions in $C^{2}$]
+A multivariate $C^{2}$ function is convex iff
+\begin{equation}
+    \nabla^{2}f(x) \succeq 0\ \forall x
+\end{equation}, where $\nabla^{2}f(x) \succeq 0$ means the \textbf{Hassian Matrix} $\nabla^{2}f(x)$ is positive semi-definite.
+\end{definition}
+
+\begin{definition}[Positive Semi-definite]
+A matrix $M$ is positive semi-definite iff
+\begin{itemize}
+    \item All eigenvalues of $M$ are non-negative.
+    \item $v^{\top}Mv \geq 0\ \forall v \in R^{d}$
+\end{itemize}
+\end{definition}
+
+\begin{lemma}
+Least square function $f(x) = \frac{1}{2}\norm{y - w^{\top}x}^2$ is convex.
+\end{lemma}
+\begin{proof}
+Since $\nabla^{2}f(x) = X^{\top}X$, $v^{\top}\nabla^{2}f(x)v = v^{\top}X^{\top}Xv\ \forall v$
+
+Denote by $W = X^{\top}v$. $v^{\top}X^{\top}Xv$ can be rewritten as $W^{\top}W = \norm{W}^2$, which is greater than 0.
+
+Therefore, the least square function $f(x)$ is convex.
+\end{proof}
+
+When the Hessian matrix is \textbf{positive definite}, $\nabla^{2}f(x) \succ 0\ \forall w \in R^{d}$, the function $f(x)$ is \textbf{strictly convex}.
+
+Strictly convex functions have two good properties.
+\begin{enumerate}
+    \item Since it Hessian matrix $\nabla^{2}f(x)$ is positive definite, $[\nabla^{2}f(x)]^{-1}$ exists.
+    \item The function $f(x)$ can have at most one global minimum.
+\end{enumerate}
+
+\begin{lemma}
+The L2-regularize least square function is strictly convex.
+\end{lemma}
+\begin{proof}
+The L2-regularize least square function can be written as 
+\begin{equation}
+    f(x)=\frac{1}{2}\norm{y - w^{\top}x}^{2} + \frac{\lambda}{2} \norm{w}^{2}
+\end{equation}, where $\lambda \geq 0$
+
+The Hessian matrix of the equation is $H = X^{\top}X + \lambda I$. Since $\forall v, v^{\top}Hv = v^{\top}X^{\top}Xv + \lambda v^{\top}Iv > 0$, $H \succ 0$. Therefore, L2-regularize least square function is strictly convex.
+\end{proof}
+
+As the L2-regularize function is strictly convex, it has a unique minimum and its Hessian matrix is invertible.
+
+\end{document}
