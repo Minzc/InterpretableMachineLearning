@@ -9,7 +9,9 @@
 * [CS 598:  Special Topics on Adversarial Machine Learning](http://www.crystal-boli.com/teaching.html) Bo Li, UIUC
 
 ## Tutorial
-* [Adversarial Machine Learning](http://www.research.ibm.com/labs/ireland/nemesis2018/pdf/tutorial.pdf) Ian Molloy, Mathieu Sinn, and Irina Nicolae
+* [Adversarial Machine Learning](http://www.research.ibm.com/labs/ireland/nemesis2018/pdf/tutorial.pdf) Ian Molloy et al. PAKDD 18'
+* [Adversarial Robustness: Theory and Practice](https://adversarial-ml-tutorial.org) Zico Kolter et al. NIPS 18'
+* [ADVERSARIAL MACHINE LEARNING TUTORIA](https://aaai18adversarial.github.io) Bo Li et al. AAAI 19'
 
 ## Papers
 TO BE ADDED
