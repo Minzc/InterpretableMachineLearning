@@ -18,7 +18,7 @@
 
 ### General
 
-The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs/1704.03453) [\[Note\]](https://minzc.github.io/the-space-of-transferable-adversarial-examples.html), Florian Tramèr1 et al
+The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs/1704.03453) [\[Note\]](https://minzc.github.io/the-space-of-transferable-adversarial-examples.html), Florian Tramèr et al
 
 ## Licenses
 License
