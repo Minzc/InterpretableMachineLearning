@@ -20,6 +20,10 @@
 
 The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs/1704.03453) [\[Note\]](https://minzc.github.io/the-space-of-transferable-adversarial-examples.html), Florian Tramèr et al
 
+## Data Poison Attack
+
+Attack under Disguise: An Intelligent Data Poisoning Attack Mechanism in Crowdsourcing [\[Paper\]](https://dl.acm.org/citation.cfm?id=3186032) 	Chenglin Miao et al. WWW 18'
+
 ## Licenses
 License
 
