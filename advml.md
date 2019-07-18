@@ -27,6 +27,9 @@ Attack under Disguise: An Intelligent Data Poisoning Attack Mechanism in Crowdso
 Contamination Attacks and Mitigation in Multi-Party Machine Learning [\[Paper\]](https://arxiv.org/abs/1901.02402) Jamie Hayes et al. NIPS 18'
 
 Towards Data Poisoning Attacks in Crowd Sensing Systems [\[Paper\]](https://dl.acm.org/citation.cfm?id=3209594) 	Chenglin Miao et al. Mobihoc 18'
+
+Mitigating Sybils in Federated Learning Poisoning [\[Paper\]](https://arxiv.org/abs/1808.04866) 
+Clement Fung et al.
 ## Licenses
 License
 
