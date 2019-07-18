@@ -28,8 +28,11 @@ The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs
 
 [Towards Data Poisoning Attacks in Crowd Sensing Systems](https://dl.acm.org/citation.cfm?id=3209594) 	Chenglin Miao et al. Mobihoc 18'
 
+## Data Poison Defense
+
 [Mitigating Sybils in Federated Learning Poisoning](https://arxiv.org/abs/1808.04866) 
 Clement Fung et al.
+
 ## Licenses
 License
 
