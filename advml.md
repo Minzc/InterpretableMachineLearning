@@ -33,7 +33,7 @@ The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs
 [Mitigating Sybils in Federated Learning Poisoning](https://arxiv.org/abs/1808.04866) 
 Clement Fung et al.
 
-[Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent](https://papers.nips.cc/paper/6617-machine-learning-with-adversaries-byzantine-tolerant-gradient-descent.pdf) Peva Blanchard et al.
+[Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent](https://papers.nips.cc/paper/6617-machine-learning-with-adversaries-byzantine-tolerant-gradient-descent.pdf) Peva Blanchard et al. NIPS 18'
 ## Licenses
 License
 
