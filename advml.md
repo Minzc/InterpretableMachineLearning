@@ -24,11 +24,11 @@ The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs
 
 Attack under Disguise: An Intelligent Data Poisoning Attack Mechanism in Crowdsourcing [\[Paper\]](https://dl.acm.org/citation.cfm?id=3186032) 	Chenglin Miao et al. WWW 18'
 
-Contamination Attacks and Mitigation in Multi-Party Machine Learning [\[Paper\]](https://arxiv.org/abs/1901.02402) Jamie Hayes et al. NIPS 18'
+[Contamination Attacks and Mitigation in Multi-Party Machine Learning](https://arxiv.org/abs/1901.02402) Jamie Hayes et al. NIPS 18'
 
-Towards Data Poisoning Attacks in Crowd Sensing Systems [\[Paper\]](https://dl.acm.org/citation.cfm?id=3209594) 	Chenglin Miao et al. Mobihoc 18'
+[Towards Data Poisoning Attacks in Crowd Sensing Systems](https://dl.acm.org/citation.cfm?id=3209594) 	Chenglin Miao et al. Mobihoc 18'
 
-Mitigating Sybils in Federated Learning Poisoning [\[Paper\]](https://arxiv.org/abs/1808.04866) 
+[Mitigating Sybils in Federated Learning Poisoning](https://arxiv.org/abs/1808.04866) 
 Clement Fung et al.
 ## Licenses
 License
