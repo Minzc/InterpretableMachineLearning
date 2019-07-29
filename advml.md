@@ -20,6 +20,8 @@
 
 The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs/1704.03453) [\[Note\]](https://minzc.github.io/the-space-of-transferable-adversarial-examples.html), Florian Tramèr et al
 
+[Man vs. Machine: Practical Adversarial Detection of Malicious Crowdsourcing Worker](https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-wang-gang.pdf) Gang Wang et al. Usenix 14'
+
 ## Data Poison Attack
 
 [Attack under Disguise: An Intelligent Data Poisoning Attack Mechanism in Crowdsourcing](https://dl.acm.org/citation.cfm?id=3186032) 	Chenglin Miao et al. WWW 18'
