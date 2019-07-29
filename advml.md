@@ -28,7 +28,7 @@ The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs
 
 [Towards Data Poisoning Attacks in Crowd Sensing Systems](https://dl.acm.org/citation.cfm?id=3209594) 	Chenglin Miao et al. Mobihoc 18'
 
-[Sybil Defense in Crowdsourcing Platforms](https://zhydhkcws.github.io/sybil_defense_cikm.pdf) Dong Yuan et al. CIKM 17'
+
 
 ## Data Poison Defense
 
@@ -36,6 +36,10 @@ The Space of Transferable Adversarial Examples [\[Paper\]](https://arxiv.org/abs
 Clement Fung et al.
 
 [Machine Learning with Adversaries: Byzantine Tolerant Gradient Descent](https://papers.nips.cc/paper/6617-machine-learning-with-adversaries-byzantine-tolerant-gradient-descent.pdf) Peva Blanchard et al. NIPS 18'
+
+[Sybil Defense in Crowdsourcing Platforms](https://zhydhkcws.github.io/sybil_defense_cikm.pdf) Dong Yuan et al. CIKM 17'
+
+[Crowdsourcing with Arbitrary Adversaries](http://proceedings.mlr.press/v80/kleindessner18a/kleindessner18a.pdf) Matthaus Kleindessner et al. ICML 18'
 ## Licenses
 License
 
